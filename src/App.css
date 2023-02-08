@@ -1,38 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+body {
+  font-size: 25px;
+  font-family: 'Inconsolata', monospace;
+  color: #292929;
+  background: rgb(238,174,202);
+  background: -moz-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca",endColorstr="#94bbe9",GradientType=1);
+  user-select: none;
+}
+
 .App {
+  width: 55vw;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  padding-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.control-buttons {
+  padding: 0;
+  border: 0;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.control-buttons:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.control-button-right {
+  grid-area: control-r
+}
+
+.control-button-left {
+  grid-area: control-l
+}
+
+.label {
+  grid-area: label;
+}
+
+.control-button-label {
+  grid-area: control-label;
+}
+
+.control-grid {
+  display: grid;
+  grid-template:
+  "label label label" 100px
+  "control-r control-label control-l" 100px
+  / 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.control-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+#time-left {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+#start_stop, #reset {
+  background-color: #FFF;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  padding-bottom: 0;
+  border: 0;
+  color: #292929;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+#start_stop:hover, #reset:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#timer-control {
+  padding-top: 10px;
+}
+
+#timer-label {
+  padding-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #292929;
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: relative;
+  bottom: -50px;
+}
+
+@media (max-width: 700px) {
+  .App {
+    width: 99vw;
   }
 }
